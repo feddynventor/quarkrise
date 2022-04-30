@@ -21,9 +21,9 @@ app.get("/", (req, res) => {
         // res.sendFile(__dirname + "/index.html");
 
     fs.readFile(__dirname + '/content/' + getLatestFile(__dirname + '/uploads/') + '.txt', 'utf8', (err, data) => {
-        let date = null;
+//        let date = null;
         if (err) data=""
-        else date = fs.statSync(__dirname + '/content/' + getLatestFile(__dirname + '/uploads/') + '.txt').mtime
+//        else date = fs.statSync(__dirname + '/content/' + getLatestFile(__dirname + '/uploads/') + '.txt').mtime
 
 {/* <script>window.onload = ()=>{if (window.location.search.includes('desc')) document.getElementById("myModal").style.display = "block";}</script> */}
 
@@ -50,8 +50,8 @@ app.get("/", (req, res) => {
                         <input type="file" name="uploadObject" id="uploadObject" onchange="this.form.submit();" />
                     </div>
                 </form>
-                `+(!date?'':'<div class="date">'+date+'</div>')+`<hr>
-                <div class="caption">`+data.replace('\n','<br>')+`</div>
+                `+(!date?'':'<div class="date">'+date+'</div>')+`
+                <hr><div class="caption">`+data.replace('\n','<br>')+`</div>
                 <div style="display: inline;">
                 <a class="cam" href="./video.html">Go to #feddycam</a>
                 <a class="edit" href="./?desc">Edit caption</a>
@@ -79,7 +79,7 @@ app.get('/last', (req, res) => {
 })
 
 app.get('/random', (req, res) => {
-    res.sendFile(__dirname + '/shuffler/' + getRandomFile(__dirname + '/uploads/'))
+    res.sendFile(__dirname + '/shuffler/' + getRandomFile(__dirname + '/shuffler/'))
 })
 
 app.post('/upload', function(req, res) {

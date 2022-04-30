@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        body {
+            /* background-image: url('http://10.0.0.16:8888/lastimg'); */
+            /* background-size: cover; */
+            height: 100%;overflow: hidden;
+        }
+        .image-upload>input {
+            display: none;
+        }
+        img {
+            height: 90%; width: 100%; object-fit: contain
+        }
+    </style></head>
+    <body>
+    <form ref='uploadForm' 
+        id='uploadForm' 
+        action='http://10.0.0.16:8888/upload' 
+        method='post' 
+        encType="multipart/form-data">
+        <div class="image-upload">
+            <label for="uploadObject"><img src="http://10.0.0.16:8888/lastimg"/></label>
+            <input type="file" name="uploadObject" id="uploadObject" onchange="this.form.submit();" />
+        </div>
+        <!-- <input type='submit' value='Upload!' /> -->
+        <!-- <input type="image" src="http://10.0.0.16:8888/lastimg" border="0" alt="Submit" /> -->
+    </form>     
+    <div style="height: 10%;">Salveeeee</div>
+    </body>
+</html>

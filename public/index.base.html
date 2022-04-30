@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="main.css">
+        <script>window.onload = ()=>{if (window.location.search.includes('desc')) document.getElementById("myModal").style.display = "block";}</script>
+    </head>
+    <body>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form ref='descriptionForm' action='./description' method='post'>
+                    <textarea name="content" rows="5" style="width: 100%;"></textarea>
+                    <input style="margin: 2px; font-size: 1em;" type="submit" value=">> Let's mesmerize!">
+                </form>
+            </div>
+        </div>
+    <form ref='uploadForm' id='uploadForm' action='./upload' method='post' encType="multipart/form-data">
+        <div class="image-upload">
+            <label for="uploadObject"><img src="./last"/></label>
+            <input type="file" name="uploadObject" id="uploadObject" onchange="this.form.submit();" />
+        </div>
+    </form>     
+    </body>
+</html>

@@ -1,9 +1,9 @@
-body {height: 100%; overflow: hidden; color: white; background-color: #000;}
+body { height: 100%; overflow: hidden; color: white; background-color: #000; 
+font-family: "Sofia", sans-serif; text-shadow: 3px 3px 3px #ababab;}
 .image-upload>input {display: none;}
-img {height: 65%; width: 100%; object-fit: contain}
-.caption {height: 15%; width: 100%; font-size: 1.8rem; text-align: center;}
-h1 {width: 100%; text-align: center;}
+.caption {height: 20%; width: 100%; font-size: 1.5rem; text-align: center; text-size-adjust: auto; word-wrap:break-word;}
 .date {width: 100%; text-align: center; font-style: italic;}
+img {height: 60%; width: 100%; object-fit: contain}
 input[type=submit] {
     margin: 0; padding: 0; font-size: 2em; margin-top: 2px;
 }

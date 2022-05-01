@@ -2,11 +2,20 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const mime = require('mime-types');
-const e = require('express');
+const { lookup } = require('geoip-lite');
 
 const app = express();
 app.use(require('express-fileupload')());
 app.use(require('body-parser').urlencoded({ extended: false }))
+
+app.all("*", (req, res, next)=>{
+    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    const details = lookup(ip);
+    if (details.country == "IT" || details.country == "ID")
+        next()
+    else
+        res.sendStatus(400)
+});
 
 app.use(express.static('public'))
 
@@ -50,7 +59,6 @@ app.get("/", (req, res) => {
                         <input type="file" name="uploadObject" id="uploadObject" onchange="this.form.submit();" />
                     </div>
                 </form>
-                `+(!date?'':'<div class="date">'+date+'</div>')+`
                 <hr><div class="caption">`+data.replace('\n','<br>')+`</div>
                 <div style="display: inline;">
                 <a class="cam" href="./video.html">Go to #feddycam</a>
